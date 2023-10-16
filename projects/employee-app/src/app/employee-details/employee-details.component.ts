@@ -17,7 +17,6 @@ export class EmployeedetailsComponent {
 
   ngOnInit() {
     this.filterKey = "";
-
     this.employeeDetails = this.getEmployeeDetails('employee_details');
     this.filteredEmployeeList = this.employeeDetails;
     this.getFilteredData(this.inputs).subscribe(result => {
@@ -25,8 +24,7 @@ export class EmployeedetailsComponent {
     });
   }
 
-  getEmployeeDetails(key:string)
-  {
+  getEmployeeDetails(key: string) {
     let getdata = localStorage.getItem(key);
     if (getdata !== '' && getdata !== null) {
       this.employeeDetails = JSON.parse(getdata);

@@ -22,8 +22,8 @@ export class ProjectDetailsComponent {
 
   projectDetails: any[] = [];
   submitted: boolean = false;
-  employeeId ='';
-  
+  employeeId = '';
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -32,15 +32,18 @@ export class ProjectDetailsComponent {
       projectname: ['', Validators.required],
       description: ['', Validators.required],
     })
-
-    let getdata = localStorage.getItem('project_details');
-    if (getdata !== '' && getdata !== null) {
-      this.projectDetails = JSON.parse(getdata);
-    }
+    this.getLocalStorageData();
   }
 
   get f(): { [key: string]: AbstractControl } {
     return this.addprojectform.controls;
+  }
+
+  getLocalStorageData() {
+    let getdata = localStorage.getItem('project_details');
+    if (getdata !== '' && getdata !== null) {
+      this.projectDetails = JSON.parse(getdata);
+    }
   }
 
   formSubmit() {
@@ -49,15 +52,11 @@ export class ProjectDetailsComponent {
       return;
     }
     this.projectDetails = [];
-    let getdata = localStorage.getItem('project_details');
-    if (getdata !== '' && getdata !== null) {
-      this.projectDetails = JSON.parse(getdata);
-    }
+    this.getLocalStorageData();
 
     this.projectDetails.push(this.addprojectform.value);
     let projectData = JSON.stringify(this.projectDetails);
     localStorage.setItem("project_details", projectData);
-
   }
 
 }

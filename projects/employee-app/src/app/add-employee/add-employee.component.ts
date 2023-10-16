@@ -58,8 +58,4 @@ export class AddEmployeeComponent {
     localStorage.setItem("employee_details", employeeData);
     this.router.navigateByUrl('employee-details');
   }
-
-  addEmployee(){
-    this.router.navigateByUrl('employee-details');
-  }
 }

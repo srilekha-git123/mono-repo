@@ -1,29 +1,30 @@
 <div>
-    <div>
-    <input type="text"[ngModel]="filterKey" (ngModelChange)="onFilterKeyChange($event)" placeholder="Start typing to filter">
-    </div>
-    <table class="table table-bordered mt-5">
-        <thead>
-            <tr>
-              <th scope="col">Employee ID</th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Email ID</th>
-              <th scope="col">Mobile Number</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let employee of filteredEmployeeList">
-                <td>{{employee.employeeid}}</td>
-                <td>{{employee.firstname}}</td>
-                <td>{{employee.lastname}}</td>
-                <td>{{employee.emailid}}</td>
-                <td>{{employee.mobile}}</td>
-            </tr>
-    
-          </tbody>
-    </table>
-    <div>
-        <button class="btn btn-primary" routerLink="/add-employee">Back</button>
-    </div>
-    </div>
+  <div>
+    <input type="text" [ngModel]="filterKey" (ngModelChange)="onFilterKeyChange($event)"
+      placeholder="Start typing to filter">
+  </div>
+  <table class="table table-bordered mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Employee ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email ID</th>
+        <th scope="col">Mobile Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of filteredEmployeeList">
+        <td>{{employee.employeeid}}</td>
+        <td>{{employee.firstname}}</td>
+        <td>{{employee.lastname}}</td>
+        <td>{{employee.emailid}}</td>
+        <td>{{employee.mobile}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+  <div>
+    <button class="btn btn-primary" routerLink="/add-employee">Back</button>
+  </div>
+</div>

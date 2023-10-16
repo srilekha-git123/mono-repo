@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeedetailsComponent } from './employee-details/employee-details.component';
 import { CommonModule } from '@angular/common';
-
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 

@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{path:'',component:ProjectDetailsComponent}]),
+    RouterModule.forChild([{ path: '', component: ProjectDetailsComponent }]),
     ReactiveFormsModule
   ]
 })

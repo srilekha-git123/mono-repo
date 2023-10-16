@@ -17,7 +17,7 @@ module.exports = {
   },
   optimization: {
     runtimeChunk: false
-  },   
+  },
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
@@ -28,29 +28,21 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        //library: { type: "module" },
 
-        // For remotes (please adjust)
-         //name: "employeeApp",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './projects/employee-app/src/app/app.component.ts',
-        // },        
-        
-       // For hosts (please adjust)
-        remotes: {
-          // 'projectApp': "projectApp@http://localhost:4300/remoteEntry.js",
-        },
+      // For hosts (please adjust)
+      remotes: {
+        // 'projectApp': "projectApp@http://localhost:4300/remoteEntry.js",
+      },
 
-        shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+      shared: share({
+        "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
 
-          ...sharedMappings.getDescriptors()
-        })
-        
+        ...sharedMappings.getDescriptors()
+      })
+
     }),
     sharedMappings.getPlugin()
   ],

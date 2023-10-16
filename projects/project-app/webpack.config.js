@@ -27,7 +27,6 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        //library: { type: "module" },
 
         // For remotes (please adjust)
         name: "projectApp",
@@ -35,11 +34,7 @@ module.exports = {
         exposes: {
           './Module': './projects/project-app/src/app/project/project.module.ts',
         }, 
-        // For hosts (please adjust)
-        // remotes: {
-        //     "employeeApp": "http://localhost:4200/remoteEntry.js",
-        // },
-
+       
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
