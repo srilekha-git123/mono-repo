@@ -2,3 +2,6 @@
     max-width: 350px;
     margin: auto;
 }
+.back-button{
+    float: right;
+}

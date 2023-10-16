@@ -6,7 +6,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-project-details',
@@ -24,7 +24,7 @@ export class ProjectDetailsComponent {
   submitted: boolean = false;
   employeeId = '';
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private location: Location) { }
 
   ngOnInit() {
     this.addprojectform = this.fb.group({
@@ -59,4 +59,7 @@ export class ProjectDetailsComponent {
     localStorage.setItem("project_details", projectData);
   }
 
+  backButton(){
+    this.location.back();
+  }
 }
