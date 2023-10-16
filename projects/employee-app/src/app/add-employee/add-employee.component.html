@@ -1,0 +1,65 @@
+<div>
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #e3f2fd;">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <button class="btn my-2 my-sm-0" type="submit" routerLink="/add-employee">Add Employee</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn my-2 my-sm-0" type="submit" routerLink="/projectApp">Add Project</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="employee-form mt-3">
+
+    <h3>Add Employee Details</h3>
+    <form [formGroup]="employeeform" (ngSubmit)="formSubmit()" id="employeeform">
+        <div class="mb-3">
+            <label class="form-label">Employee ID</label>
+            <input type="text" formControlName="employeeid" class="form-control" id="employeeid">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="text" formControlName="firstname" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }" id="firstname">
+            <div *ngIf="submitted && f['firstname'].errors">
+                <div *ngIf="f['firstname'].errors['required']" class="text-danger">First name is required</div>
+                <div *ngIf="f['firstname'].errors['minlength']">Minimum 3 characters required</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" formControlName="lastname" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }">
+            <div *ngIf="submitted && f['lastname'].errors">
+                <div *ngIf="f['lastname'].errors['required']" class="text-danger">Last name is required</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email ID</label>
+            <input type="email" formControlName="emailid" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['emailid'].errors }">
+            <div *ngIf="submitted && f['emailid'].errors">
+                <div *ngIf="f['emailid'].errors['required']" class="text-danger">Email is required</div>
+                <div *ngIf="f['emailid'].errors['email']" class="text-danger">Email is invalid</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Mobile Number</label>
+            <input type="number" formControlName="mobile" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['mobile'].errors }">
+            <div *ngIf="submitted && f['mobile'].errors">
+                <div *ngIf="f['mobile'].errors['required']" class="text-danger">Mobile number is required</div>
+                <div *ngIf="f['mobile'].errors['pattern']" class="text-danger">Mobile number is invalid</div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
