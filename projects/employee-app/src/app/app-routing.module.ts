@@ -11,10 +11,9 @@ const routes: Routes = [
   {path:"projectApp",
   loadChildren: () =>
   loadRemoteModule({
-      type: 'module',
-      //remoteName: 'projectApp',
+      remoteName: 'projectApp',
       remoteEntry: 'http://localhost:4300/remoteEntry.js',
-      exposedModule: './ProjectModule'
+      exposedModule: './Module'
   })
   .then((m) => m.ProjectModule)
 }

@@ -1,1 +1,1 @@
-declare module 'projectApp/project/projectModule'
+declare module 'projectApp/Module';
