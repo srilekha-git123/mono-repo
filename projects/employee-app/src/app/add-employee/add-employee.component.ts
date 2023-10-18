@@ -1,14 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employeeinterface } from '../model';
-
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators,
-} from '@angular/forms';
+import { SharedServiceService } from 'projects/shared-service/src/public-api';
+import { AbstractControl, FormBuilder, FormGroup, FormControl, Validators, } from '@angular/forms';
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -26,7 +20,7 @@ export class AddEmployeeComponent {
 
   submitted: boolean = false;
   employeeDetails: Employeeinterface[] = [];
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, public SharedService: SharedServiceService) { }
 
   ngOnInit() {
     this.employeeform = this.formBuilder.group({
@@ -48,14 +42,10 @@ export class AddEmployeeComponent {
       return;
     }
     this.employeeDetails = [];
-    let getdata = localStorage.getItem('employee_details');
-    if (getdata !== '' && getdata !== null) {
-      this.employeeDetails = JSON.parse(getdata);
-    }
+    this.employeeDetails = this.SharedService.getLocalStorageData('employee_details');
 
     this.employeeDetails.push(this.employeeform.value);
-    let employeeData = JSON.stringify(this.employeeDetails);
-    localStorage.setItem("employee_details", employeeData);
+    this.SharedService.setLocalStorageItem("employee_details", this.employeeDetails);
     this.router.navigateByUrl('employee-details');
   }
 }

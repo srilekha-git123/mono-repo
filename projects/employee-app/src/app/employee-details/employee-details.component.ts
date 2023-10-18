@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Employeeinterface } from '../model';
 import { Observable, Subject, of, switchMap } from 'rxjs';
+import { SharedServiceService } from 'projects/shared-service/src/public-api';
 
 @Component({
   selector: 'app-employee-details',
@@ -13,23 +14,15 @@ export class EmployeedetailsComponent {
   filteredEmployeeList: Employeeinterface[] = [];
   inputs = new Subject<any>();
   filterKey = '';
-  constructor() { }
+  constructor(public SharedService: SharedServiceService) { }
 
   ngOnInit() {
     this.filterKey = "";
-    this.employeeDetails = this.getEmployeeDetails('employee_details');
+    this.employeeDetails = this.SharedService.getLocalStorageData('employee_details');
     this.filteredEmployeeList = this.employeeDetails;
     this.getFilteredData(this.inputs).subscribe(result => {
       this.filteredEmployeeList = result;
     });
-  }
-
-  getEmployeeDetails(key: string) {
-    let getdata = localStorage.getItem(key);
-    if (getdata !== '' && getdata !== null) {
-      this.employeeDetails = JSON.parse(getdata);
-    }
-    return this.employeeDetails;
   }
 
   onFilterKeyChange(key: any) {
@@ -44,7 +37,6 @@ export class EmployeedetailsComponent {
         let result = this.employeeDetails.filter(item =>
           item.firstname.toLowerCase().includes(key.toLowerCase())
         );
-
         return of(result);
       })
     );
