@@ -32,18 +32,35 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-        <button class="btn btn-secondary back-button" (click)="backButton()" >BACK</button>
+        <button class="btn btn-secondary back-button" (click)="backButton()">BACK</button>
     </form>
 
+    <div style="margin-top:30px">
+    <select [(ngModel)]="selectedProjectId" class="form-select" style="width:50%;margin-bottom: 20px;">
+        <option value='undefined' hidden disabled>Select Project ID</option>
+        <option *ngFor="let project of projectDetails" [ngValue]="project.projectid">{{project.projectid}}</option>
+    </select>
+
+    <select [(ngModel)]="selectedEmployeeId" class="form-select" style="width:60%;margin-bottom: 20px;">
+        <option value='undefined' hidden disabled>Select Employee ID</option>
+        <option *ngFor="let employee of employeeDetails" [value]="employee.employeeid">{{employee.employeeid}}</option>
+    </select>
+
+    <div><button class="btn btn-primary" (click)="assign()">Assign</button></div>
+</div>
 </div>
 
-<div *ngIf="projectDetails?.length">
+<div>
+   
+</div>
+<!-- <div *ngIf="projectDetails?.length">
     <table class="table table-bordered mt-5">
         <thead>
             <tr>
                 <th scope="col">Project ID</th>
                 <th scope="col">Project Name</th>
                 <th scope="col">Description</th>
+                <th scope="col">Assign Project</th>
             </tr>
         </thead>
         <tbody>
@@ -51,8 +68,9 @@
                 <td>{{project.projectid}}</td>
                 <td>{{project.projectname}}</td>
                 <td>{{project.description}}</td>
+                <button class="btn btn-primary">Assign</button>
             </tr>
 
         </tbody>
     </table>
-</div>
+</div> -->

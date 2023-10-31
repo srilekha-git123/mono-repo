@@ -8,6 +8,8 @@ import { EmployeedetailsComponent } from './employee-details/employee-details.co
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import {SharedServiceModule} from 'projects/shared-service/src/lib/shared-service.module';
+import { Store } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
+    ReactiveFormsModule,
+    SharedServiceModule
+    ],
+  providers: [Store],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

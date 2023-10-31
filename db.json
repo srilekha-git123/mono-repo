@@ -1,0 +1,80 @@
+{
+  "employeeDetials": [
+    {
+      "employeeid": "A1234",
+      "firstname": "sri",
+      "lastname": "lekha",
+      "emailid": "sri@gmail.com",
+      "mobile": 7867543424,
+      "id": 1
+    },
+    {
+      "employeeid": "A8978",
+      "firstname": "tanvi",
+      "lastname": "sha",
+      "emailid": "tani@gmail.com",
+      "mobile": 8909878990,
+      "id": 2
+    },
+    {
+      "employeeid": "D4567",
+      "firstname": "shanmuga",
+      "lastname": "sundaram",
+      "emailid": "shanmugam@gmail.com",
+      "mobile": 8798909876,
+      "id": 3
+    },
+    {
+      "employeeid": "A3452",
+      "firstname": "surendar",
+      "lastname": "ps",
+      "emailid": "suren@gmail.com",
+      "mobile": 8909890989,
+      "id": 4
+    }
+  ],
+  "projectDetials": [
+    {
+      "projectid": "123",
+      "projectname": "Billpayment",
+      "description": "bill payment application",
+      "id": 1
+    },
+    {
+      "projectid": "456",
+      "projectname": "credito",
+      "description": "credit card application",
+      "id": 2
+    },
+    {
+      "projectid": "890",
+      "projectname": "helathify",
+      "description": "health care app",
+      "id": 3
+    }
+  ],
+  "allDetials": [
+    {
+      "projectid": "123",
+      "projectname": "Billpayment",
+      "description": "bill payment application",
+      "id": 0,
+      "employeeid": "A8978",
+      "firstname": "tanvi",
+      "lastname": "sha",
+      "emailid": "tani@gmail.com",
+      "mobile": 8909878990
+    },
+    {
+      "employeeid": "A1234",
+      "firstname": "sri",
+      "lastname": "lekha",
+      "emailid": "sri@gmail.com",
+      "mobile": 7867543424,
+      "id": 1,
+      "projectid": "123",
+      "projectname": "Billpayment",
+      "description": "bill payment application"
+    }
+  ]
+}
